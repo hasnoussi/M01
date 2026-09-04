@@ -1,17 +1,22 @@
 #!/usr/bin/env python3
+
+
 class Plant:
-    def __init__(self, name, height, age_d):
-        self.name = name 
+    def __init__(self, name: str, height: float, age_d: int) -> None:
+        self.name = name
         self.height = height
         self.age_d = age_d
-    
-    def grow(self):
+
+    def grow(self) -> None:
         self.height = round(self.height + 0.8, 1)
-    def age(self):
+
+    def age(self) -> None:
         self.age_d = self.age_d + 1
-    def show(self):
+
+    def show(self) -> None:
         print(f"{self.name}: {self.height}cm, {self.age_d} days old")
-    def  track_week(self):
+
+    def track_week(self) -> None:
         self.show()
         height_debut = self.height
         for i in range(7):
@@ -21,12 +26,11 @@ class Plant:
             self.show()
         croissance = round(self.height - height_debut, 1)
         print(f"Growth this week: {croissance}cm")
-    
-       
+
+
 if __name__ == "__main__":
-    
     print("=== Plant Factory Output ===")
-   
+
     p1 = Plant("Rose", 25.0, 30)
     p2 = Plant("Oak", 200.0, 365)
     p3 = Plant("Cactus", 5.0, 90)
@@ -35,6 +39,6 @@ if __name__ == "__main__":
 
     garden = [p1, p2, p3, p4, p5]
 
-    for i in garden:
+    for plant in garden:
         print("Created: ", end="")
-        i.show()
+        plant.show()
